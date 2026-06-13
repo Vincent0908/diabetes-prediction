@@ -1,0 +1,16 @@
+{
+  "logistic_regression": {
+    "Accuracy": 0.7013,
+    "Precision": 0.5909,
+    "Recall": 0.4815,
+    "F1-Score": 0.5306,
+    "ROC-AUC": 0.8217
+  },
+  "neural_network": {
+    "Accuracy": 0.7208,
+    "Precision": 0.6078,
+    "Recall": 0.5741,
+    "F1-Score": 0.5905,
+    "ROC-AUC": 0.8106
+  }
+}
