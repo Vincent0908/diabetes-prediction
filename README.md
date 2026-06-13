@@ -3,7 +3,7 @@ A complete Machine Learning project that predicts diabetes risk using clinical m
 
 ---
 
-## 📋 Project Overview
+##  Project Overview
 
 | Item | Detail |
 |------|--------|
@@ -14,7 +14,7 @@ A complete Machine Learning project that predicts diabetes risk using clinical m
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 diabetes-prediction/
@@ -54,7 +54,7 @@ diabetes-prediction/
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 ### 1. Clone or download the project
 
@@ -78,7 +78,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Step 1 — Run the full ML pipeline
 
@@ -99,7 +99,7 @@ Then open `http://localhost:8501` in your browser.
 
 ---
 
-## 📊 Pipeline Stages
+##  Pipeline Stages
 
 ### 1. Exploratory Data Analysis (EDA)
 - Class distribution analysis (1.87:1 imbalance)
@@ -141,7 +141,7 @@ Then open `http://localhost:8501` in your browser.
 
 ---
 
-## 🌐 Streamlit App Features
+##  Streamlit App Features
 
 - **Tab 1 – Prediction**: Enter patient data → select model → view prediction with probability
 - **Tab 2 – Model Performance**: Confusion matrices, ROC curves, training history, feature importance
@@ -149,7 +149,7 @@ Then open `http://localhost:8501` in your browser.
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 1. **Class imbalance**: Dataset is not perfectly balanced (65% no diabetes). Techniques like SMOTE or class weights could improve recall on the minority class.
 2. **Dataset size**: 768 samples is small for a neural network — the LR model performs comparably.
@@ -157,7 +157,7 @@ Then open `http://localhost:8501` in your browser.
 
 ---
 
-## 📦 Key Libraries
+##  Key Libraries
 
 | Library | Version | Purpose |
 |---------|---------|---------|
