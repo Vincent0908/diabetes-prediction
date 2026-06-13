@@ -265,20 +265,31 @@ def main():
             lr_m = metrics['logistic_regression']
             nn_m = metrics['neural_network']
 
+            metric_keys = ['Accuracy', 'Precision', 'Recall', 'F1-Score', 'ROC-AUC']
             metrics_df = pd.DataFrame({
-                'Metric': ['Accuracy', 'Precision', 'Recall', 'F1-Score', 'ROC-AUC'],
-                'Logistic Regression': [lr_m['Accuracy'], lr_m['Precision'],
-                                        lr_m['Recall'], lr_m['F1-Score'], lr_m['ROC-AUC']],
-                'Neural Network': [nn_m['Accuracy'], nn_m['Precision'],
-                                   nn_m['Recall'], nn_m['F1-Score'], nn_m['ROC-AUC']]
+                'Metric': metric_keys,
+                'Logistic Regression': [lr_m[k] for k in metric_keys],
+                'Neural Network':      [nn_m[k] for k in metric_keys]
             })
-            st.dataframe(
+
+            def style_row(row):
+                # Explicitly color all cells to avoid white background in dark mode
+                lr_val = row['Logistic Regression']
+                nn_val = row['Neural Network']
+                win  = 'background-color: #16a34a; color: white; font-weight: 600'
+                base = 'background-color: transparent'
+                if lr_val > nn_val:
+                    return ['', win, base]
+                elif nn_val > lr_val:
+                    return ['', base, win]
+                return ['', base, base]
+
+            styled = (
                 metrics_df.style
-                    .highlight_max(subset=['Logistic Regression', 'Neural Network'],
-                                   color='#bbf7d0', axis=1)
-                    .format({'Logistic Regression': '{:.4f}', 'Neural Network': '{:.4f}'}),
-                use_container_width=True, hide_index=True
+                    .apply(style_row, axis=1)
+                    .format({'Logistic Regression': '{:.4f}', 'Neural Network': '{:.4f}'})
             )
+            st.dataframe(styled, use_container_width=True, hide_index=True)
 
         col_a, col_b = st.columns(2)
 
